@@ -21,7 +21,7 @@ export function SiteFooter() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            Leetcodeboard
+            Github
           </a>
           .
         </p>
