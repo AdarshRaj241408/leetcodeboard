@@ -13,7 +13,7 @@ export default function Home() {
         <div className="relative px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-500/45 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
           <div className="flex space-x-4">
             <Link href="/problems">
-              <Button>Hello</Button>
+              <Button>Problems</Button>
             </Link>
             <ModeToggle />
           </div>
