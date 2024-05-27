@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -16,40 +17,43 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  id: z.number().max(1000, {
+    message: "id should be smaller than 1000",
   }),
 });
 
 export function ProfileForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
+    // defaultValues: {
+    //   id: 0,
+    // },
   });
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    window.location.href = `/problems/${values.id}`;
     console.log(values);
   }
+  const router = useRouter();
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="id"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>ProblemID</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input
+                  type="number"
+                  placeholder="Enter ID"
+                  {...field}
+                  onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>This is the id of your Problem.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
