@@ -1,21 +1,35 @@
-import { SiteFooter } from "@/components/ui/site-footer";
+import dynamic from "next/dynamic";
 import { SiteHeader } from "@/components/ui/site-header";
+import { SiteFooter } from "@/components/ui/site-footer";
 
-export default function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
+// Since client components get prerenderd on server as well hence importing
+// the excalidraw stuff dynamically with ssr false
 
+const ExcalidrawWrapper = dynamic(
+  async () => (await import("@/components/ui/excalidrawWrapper")).default,
+  {
+    ssr: false,
+  }
+);
+
+export default function Page() {
   return (
     <>
-      <SiteHeader />
-
-      <div className="relative flex flex-col justify-center overflow-hidden z-50">
-        <iframe
-          src={`https://excalidraw.com/${id}`}
-          style={{ width: "100%", height: "92.5vh", border: "none" }}
-          title="Excalidraw"
-        />
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <SiteHeader />
+        <div
+          style={{
+            flex: 1,
+            position: "relative",
+            zIndex: "100",
+            display: "flex",
+            width: "100%",
+          }}
+        >
+          <ExcalidrawWrapper />
+        </div>
+        <SiteFooter />
       </div>
-      <SiteFooter />
     </>
   );
 }
