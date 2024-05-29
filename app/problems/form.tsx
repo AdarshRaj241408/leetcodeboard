@@ -17,9 +17,14 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  id: z.number().max(1000, {
-    message: "id should be smaller than 1000",
-  }),
+  id: z
+    .number()
+    .min(0, {
+      message: "id should be positive",
+    })
+    .max(1000, {
+      message: "id should be smaller than 1000",
+    }),
 });
 
 export function ProfileForm() {

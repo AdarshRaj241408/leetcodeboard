@@ -10,7 +10,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
       <div className="relative flex flex-col justify-center overflow-hidden z-50">
         <iframe
-          src={`https://excalidraw.com/#${id}`}
+          src={`https://excalidraw.com/${id}`}
           style={{ width: "100%", height: "92.5vh", border: "none" }}
           title="Excalidraw"
         />
