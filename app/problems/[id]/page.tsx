@@ -22,8 +22,6 @@ export default function Page() {
             flex: 1,
             position: "relative",
             zIndex: "100",
-            display: "flex",
-            width: "100%",
           }}
         >
           <ExcalidrawWrapper />
