@@ -1,5 +1,5 @@
 "use client";
-import { Excalidraw, WelcomeScreen } from "@excalidraw/excalidraw";
+import { Excalidraw, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
 
 //import "@excalidraw/excalidraw/index.css";
 
@@ -9,8 +9,10 @@ const ExcalidrawWrapper: React.FC = () => {
       <Excalidraw>
         <WelcomeScreen>
           <WelcomeScreen.Hints.HelpHint />
-          <WelcomeScreen.Hints.HelpHint />
+          <WelcomeScreen.Hints.MenuHint />
+          <WelcomeScreen.ToolbarHint />
         </WelcomeScreen>
+        <MainMenu />
       </Excalidraw>
     </div>
   );
