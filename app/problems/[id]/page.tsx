@@ -19,15 +19,15 @@ export default function Page({ params }: Props) {
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <SiteHeader />
-        {/*<div*/}
-        {/*  style={{*/}
-        {/*    flex: 1,*/}
-        {/*    position: "relative",*/}
-        {/*    zIndex: "100",*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <ExcalidrawWrapper  problem_ID={params.problemID} />*/}
-        {/*</div>*/}
+        <div
+          style={{
+            flex: 1,
+            position: "relative",
+            zIndex: "100",
+          }}
+        >
+          <ExcalidrawWrapper  problem_ID={params.problemID} />
+        </div>
 
           <div>
               Hello {params.problemID}!
