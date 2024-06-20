@@ -10,7 +10,7 @@ const ExcalidrawWrapper = dynamic(
 );
 type Props = {
     params: {
-        problemID: string;
+        id: string;
     }
 };
 
@@ -19,19 +19,9 @@ export default function Page({ params }: Props) {
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <SiteHeader />
-        <div
-          style={{
-            flex: 1,
-            position: "relative",
-            zIndex: "100",
-          }}
-        >
-          <ExcalidrawWrapper  problem_ID={params.problemID} />
+        <div className="z-50">
+          <ExcalidrawWrapper  id={params.id} />
         </div>
-
-          <div>
-              Hello {params.problemID}!
-          </div>
         <SiteFooter />
       </div>
     </>
