@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { SiteHeader } from "@/components/ui/site-header";
 import { SiteFooter } from "@/components/ui/site-footer";
 
+
 const ExcalidrawWrapper = dynamic(
   async () => (await import("@/components/ui/excalidrawWrapper")).default,
   {
